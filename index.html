@@ -1,1 +1,108 @@
+<!-- index.html (без изменений в структуре) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feature Activation Visualization</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+    header {
+      padding: 1em;
+      background: #f0f0f0;
+      border-bottom: 1px solid #ddd;
+    }
+    .top-controls {
+      display: flex;
+      gap: 1em;
+      align-items: center;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 1em;
+      padding: 1em;
+    }
+    #left-column {
+      border-right: 1px solid #ccc;
+      padding-right: 1em;
+    }
+    #right-column {
+      padding-left: 1em;
+    }
+    .filters {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .text-item {
+      margin-bottom: 2em;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 1em;
+    }
+    .text-meta {
+      font-size: 0.9em;
+      color: #555;
+      margin-bottom: 0.5em;
+    }
+    .tokens-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .token {
+      margin: 0 0.1em;
+      padding: 0 0.1em;
+    }
+    table.domain-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 1em;
+    }
+    table.domain-table td,
+    table.domain-table th {
+      border: 1px solid #ccc;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="top-controls">
+      <label>
+        Layer:
+        <select id="layerSelect"></select>
+      </label>
+      <label>
+        Feature:
+        <select id="featureSelect"></select>
+      </label>
+      <span id="featureTags" style="font-weight: bold;"></span>
+    </div>
+  </header>
+  <main>
+    <div id="left-column">
+      <div class="filters">
+        <label for="groupSelect">Group:</label>
+        <select id="groupSelect">
+          <option value="all">All</option>
+          <option value="Not activated" selected>Not activated</option>
+          <option value="Bottom activated" selected>Bottom activated</option>
+          <option value="Top activated" selected>Top activated</option>
+        </select>
+      </div>
+      <div id="textsContainer"></div>
+    </div>
+    <div id="right-column">
+      <h3>Feature metadata</h3>
+      <div id="featureInfo"></div>
+      <div id="featureDomainTables"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
 
